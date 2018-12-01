@@ -1,0 +1,38 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>thZero.NetCore.Library.Services.Cache.Redis</AssemblyName>
+    <PackageId>thZero.NetCore.Library.Services.Cache.Redis</PackageId>
+    <Description></Description>
+    <Authors>thZero.com</Authors>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+    <PackageRequireLicenseAcceptance>True</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <PackageProjectUrl>https://github.com/thzero/thZero.NetCore.Library.Services.Cache.Redis</PackageProjectUrl>
+    <RepositoryType>GitHub</RepositoryType>
+    <RepositoryUrl>https://github.com/thzero/thZero.NetCore.Library.Services.Cache.Redis</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="..\thZero.NetCore.Library\CommonAssemblyInfo.cs" Link="CommonAssemblyInfo.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="DeepCloner" Version="0.10.2" />
+    <PackageReference Include="MsgPack.Cli" Version="1.0.0" />
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
+    <PackageReference Include="Nito.AsyncEx" Version="5.0.0-pre-05" />
+    <PackageReference Include="StackExchange.Redis" Version="2.0.519" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\thZero.NetCore.Library.Services.Cache\thZero.NetCore.Library.Services.Cache.csproj" />
+    <ProjectReference Include="..\thZero.NetCore.Library\thZero.NetCore.Library.csproj" />
+  </ItemGroup>
+
+</Project>
