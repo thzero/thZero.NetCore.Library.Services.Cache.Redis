@@ -61,13 +61,12 @@ namespace thZero.Services
 
             key = ValidateKey(key, region);
 
-            //IProviderJson json = thZero.Utilities.Providers.Json.Instance;
+            //IServiceJson json = thZero.Utilities.Services.Json.Instance;
             //Enforce.AgainstNull(() => json);
-            //string storeValue = json.Serialize(value);
+            //string storeValueJ = json.Serialize(value);
 
             var serializer = SerializerInstance<T>();
             byte[] buffer = serializer.PackSingleObject(value);
-
             var storeValue = Convert.ToBase64String(buffer);
 
             IDatabase db = Instance.GetDatabase();
@@ -75,6 +74,10 @@ namespace thZero.Services
             await db.StringSetAsync(key, storeValue, new TimeSpan(8, 0, 0, 0), When.Always, CommandFlags.FireAndForget);
             await db.SetAddAsync(RegionKeySet, region, CommandFlags.FireAndForget);
             await db.SetAddAsync(region, key, CommandFlags.FireAndForget);
+
+            var output = Convert.FromBase64String(storeValue);
+
+            var result = serializer.UnpackSingleObject(output);
 
             return true;
         }

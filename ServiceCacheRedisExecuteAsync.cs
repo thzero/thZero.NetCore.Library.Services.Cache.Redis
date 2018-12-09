@@ -205,7 +205,7 @@ namespace thZero.Services
                 T response = await executable.ExecuteAsync();
                 if ((response != null) && response.Cacheable)
                 {
-                    List<Guid> ids = response.Ids;
+                    IEnumerable<Guid> ids = response.Ids;
 
                     IDisposable lockResult2 = null;
                     try
