@@ -27,7 +27,7 @@
     <PackageReference Include="MsgPack.Cli" Version="1.0.1" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.1" />
     <PackageReference Include="Nito.AsyncEx" Version="5.0.0-pre-05" />
-    <PackageReference Include="StackExchange.Redis" Version="2.0.519" />
+    <PackageReference Include="StackExchange.Redis" Version="2.0.571" />
   </ItemGroup>
 
   <ItemGroup>
