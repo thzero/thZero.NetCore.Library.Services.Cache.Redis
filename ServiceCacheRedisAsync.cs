@@ -156,7 +156,7 @@ namespace thZero.Services
                 return result;
             }
 
-            return default(T);
+            return default;
         }
 
         protected override async Task<bool> InitializeCore(ServiceCacheConfig config)
@@ -246,14 +246,14 @@ namespace thZero.Services
                 break;
             }
 
-            return keys.HasValue ? keys.Value : 0;
+            return keys ?? 0;
         }
 
         protected override async Task<Dictionary<string, long>> SizeRegionsCore()
         {
             //return await Task.Run(() =>
             //{
-            Dictionary<string, long> list = new Dictionary<string, long>();
+            Dictionary<string, long> list = new();
 
             string region = string.Empty;
             string[] values;
@@ -290,7 +290,7 @@ namespace thZero.Services
 
         protected async override Task<ServiceCacheStats> StatsCore()
         {
-            ServiceCacheStats stats = new ServiceCacheStats();
+            ServiceCacheStats stats = new();
 
             IEnumerable<string> values;
             string value;
@@ -395,10 +395,10 @@ namespace thZero.Services
 
         #region Fields
         private ConnectionMultiplexer _cache;
-        private static Dictionary<Type, object> _instanceSerializer = new Dictionary<Type, object>();
-        private readonly AsyncReaderWriterLock _lock = new AsyncReaderWriterLock();
-        private readonly object _lockInstance = new object();
-        private static readonly object _lockSerializer = new object();
+        private static readonly Dictionary<Type, object> _instanceSerializer = new();
+        private readonly AsyncReaderWriterLock _lock = new();
+        private readonly object _lockInstance = new();
+        private static readonly object _lockSerializer = new();
         #endregion
 
         #region Constants

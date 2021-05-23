@@ -115,7 +115,7 @@ namespace thZero.Services
 
             try
             {
-                List<Exception> exceptions = new List<Exception>();
+                List<Exception> exceptions = new();
 
                 if (!UseCache(forceCache))
                 {
@@ -197,7 +197,7 @@ namespace thZero.Services
                 }
 
                 if (!execute)
-                    return default(T);
+                    return default;
 
                 bool resultPrimary = true;
                 bool resultSecondary = true;
